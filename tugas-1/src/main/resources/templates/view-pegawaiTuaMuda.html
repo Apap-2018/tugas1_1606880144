@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>View Pegawai</title>
+
+<object th:include="fragments/fragment :: css" th:remove="tag"></object>
+<object th:include="fragments/fragment :: js" th:remove="tag"></object>
+</head>
+
+<body>
+	<nav th:replace="fragments/fragment :: navbar"></nav>
+
+	<div
+		style="display: flex; flex-direction: row; justify-content: space-around;">
+		<div class="card border-info mb-3 text-center" style="margin: 25px;">
+			<div class="card-header">
+				<h3>Data Pegawai Termuda</h3>
+			</div>
+			<div class="card-body">
+				<div class="container">
+					<table class="table table-borderless table-striped">
+						<tbody>
+							<tr>
+								<th>NIP</th>
+								<td th:text="${youngest.nip}"></td>
+							</tr>
+							<tr>
+								<th>Nama</th>
+								<td th:text="${youngest.nama}"></td>
+							</tr>
+							<tr>
+								<th>Tempat Lahir</th>
+								<td th:text="${youngest.tempatLahir}"></td>
+							</tr>
+							<tr>
+								<th>Tanggal Lahir</th>
+								<td th:text="${youngest.tanggalLahir}"></td>
+							</tr>
+							<tr>
+								<th>Tahun Masuk</th>
+								<td th:text="${youngest.tahunMasuk}"></td>
+							</tr>
+							<tr>
+								<th>Nama Instansi</th>
+								<td th:text="${youngest.instansi.nama}"></td>
+							</tr>
+							<tr>
+								<th>Jabatan</th>
+								<td>
+									<ul th:each="jabatan : ${youngest.jabatan}">
+										<li th:text="${jabatan.nama}" />
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<th>Gaji</th>
+								<td th:text="'Rp.'+${gajiYoung}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="card border-info mb-3 text-center" style="margin: 25px;">
+			<div class="card-header">
+				<h3>Data Pegawai Tertua</h3>
+			</div>
+			<div class="card-body">
+				<div class="container">
+					<table class="table table-borderless table-striped">
+						<tbody>
+							<tr>
+								<th>NIP</th>
+								<td th:text="${oldest.nip}"></td>
+							</tr>
+							<tr>
+								<th>Nama</th>
+								<td th:text="${oldest.nama}"></td>
+							</tr>
+							<tr>
+								<th>Tempat Lahir</th>
+								<td th:text="${oldest.tempatLahir}"></td>
+							</tr>
+							<tr>
+								<th>Tanggal Lahir</th>
+								<td th:text="${oldest.tanggalLahir}"></td>
+							</tr>
+							<tr>
+								<th>Tahun Masuk</th>
+								<td th:text="${oldest.tahunMasuk}"></td>
+							</tr>
+							<tr>
+								<th>Nama Instansi</th>
+								<td th:text="${oldest.instansi.nama}"></td>
+							</tr>
+							<tr>
+								<th>Jabatan</th>
+								<td>
+									<ul th:each="jabatan : ${oldest.jabatan}">
+										<li th:text="${jabatan.nama}" />
+									</ul>
+								</td>
+							</tr>
+							<tr>
+								<th>Gaji</th>
+								<td th:text="'Rp.'+${gajiOld}"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
